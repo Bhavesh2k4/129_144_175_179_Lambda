@@ -45,7 +45,7 @@ export async function DELETE(request: NextRequest) {
     }
     
     await s3.send(new DeleteObjectCommand({
-      Bucket: 'cc-project-lambda',
+      Bucket: process.env.AWS_S3_BUCKET,
       Key: functionToDelete.s3Key,
     }))
     

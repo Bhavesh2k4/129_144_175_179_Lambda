@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
   const s3Key = `user_${user.id}/${name}`
 
   await s3.send(new PutObjectCommand({
-    Bucket: 'cc-project-lambda',
+    Bucket: process.env.AWS_S3_BUCKET,
     Key: s3Key,
     Body: buffer,
   }))
