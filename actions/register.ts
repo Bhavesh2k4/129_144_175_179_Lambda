@@ -22,7 +22,7 @@ export const register = async (values:z.infer<typeof RegisterSchema>) => {
   }
   await db.user.create({
     data: {
-      email: email,
+      email: email.toLowerCase(),
       password: hashedPassword,
       name: name,
     },
